@@ -13,3 +13,23 @@ const mult = (a,b) => {
 const divide = (a,b) => {
     return a / b;
 }
+
+const operate = (operator, num1, num2) => {
+    switch (operator) {
+      case '+':
+       value = add(num1, num2);
+        break;
+      case '-':
+         value = subtract(num1, num2);
+        break;
+      case '*':
+       value = mult(num1, num2);
+        break;
+      case '/':
+        value = divide(num1, num2);
+        break;
+      default:
+        throw new Error(`Invalid operator: ${operator}`); 
+    }
+    return value;
+  };
