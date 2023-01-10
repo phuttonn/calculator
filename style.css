@@ -1,5 +1,25 @@
 body {
     background-color: rgb(50, 50, 50);
     display: flex;
+    justify-content: center;
 }
 
+.calculator {
+    background-color: grey;
+    border: 2px solid black;
+}
+
+.screen {
+    background-color: rgb(61, 59, 59);
+    color: rgb(254, 254, 254);
+    text-align: right;
+    margin: 1em;
+    height: 2em;
+    padding-top:16px;
+}
+
+button {
+    width: 40px;
+    height: auto;
+    margin: 2px;
+}
