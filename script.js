@@ -40,11 +40,10 @@ const operate = (operator, num1, num2) => {
 
   const buttons = document.querySelectorAll("button");
 
-  buttons.forEach((button) => {
-    button.addEventListener(click, () => {
+ buttons.forEach((button) => {
+    button.addEventListener('click', () => {
       let val = button.id;
-      return val;
+      screen.append(`${val}`);
     })
   });
 
-  
