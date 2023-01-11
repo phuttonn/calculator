@@ -9,7 +9,7 @@ body {
     border: 2px solid black;
 }
 
-.screen {
+#screen {
     background-color: rgb(61, 59, 59);
     color: rgb(254, 254, 254);
     text-align: right;
