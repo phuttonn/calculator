@@ -35,3 +35,13 @@ const operate = (operator, num1, num2) => {
     }
     return value;
   };
+
+  const screen = document.querySelector('#screen');
+
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach((button) => {
+    button.addEventListener(click, () => {
+      val = button.id;
+    })
+  })
