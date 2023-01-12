@@ -42,7 +42,7 @@ const operate = (operator, num1, num2) => {
 
  buttons.forEach((button) => {
     button.addEventListener('click', () => {
-      let val = button.id;
+      let val = button.innerText;
       screen.append(`${val}`);
     })
   });
