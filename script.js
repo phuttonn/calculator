@@ -37,13 +37,16 @@ const operate = (operator, num1, num2) => {
   };
 
   const screen = document.querySelector('#screen');
+  const numButtons = document.querySelectorAll(".num-button");
+  const allClear = document.querySelector('.all-clear');
 
-  const buttons = document.querySelectorAll("button");
-
- buttons.forEach((button) => {
+ numButtons.forEach((button) => {
     button.addEventListener('click', () => {
       let val = button.innerText;
       screen.append(`${val}`);
     })
   });
 
+  allClear.addEventListener('click', () => {
+    screen.innerText = ('');
+  });
