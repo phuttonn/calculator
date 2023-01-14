@@ -41,7 +41,7 @@ const numButtons = document.querySelectorAll(".num-button");
 const allClear = document.querySelector('.all-clear');
 const clear = document.querySelector('.clear');
 const operatorButton = document.querySelectorAll('.operator-button');
-const calculate = document.querySelector('#=');
+const calculate = document.querySelector('.equal-button');
 
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
