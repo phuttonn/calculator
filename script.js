@@ -40,6 +40,7 @@ const operate = (operator, num1, num2) => {
   const numButtons = document.querySelectorAll(".num-button");
   const allClear = document.querySelector('.all-clear');
   const clear = document.querySelector('.clear');
+  const operatorButton = document.querySelectorAll('.operator-button');
 
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -57,3 +58,13 @@ const operate = (operator, num1, num2) => {
     let newArray = screenArray.slice(0,-1).join('');
     screen.innerText =(newArray);
   });
+
+operatorButton.forEach((button) => {
+  button.addEventListener('click', () => {
+  let numOne = screen.innerText;
+  let operator = button.id;
+  let calc = [numOne,operator];
+  screen.innerText = '';
+  console.log(calc);
+  });
+})
