@@ -36,11 +36,12 @@ const operate = (operator, num1, num2) => {
     return value;
   };
 
-  const screen = document.querySelector('#screen');
-  const numButtons = document.querySelectorAll(".num-button");
-  const allClear = document.querySelector('.all-clear');
-  const clear = document.querySelector('.clear');
-  const operatorButton = document.querySelectorAll('.operator-button');
+const screen = document.querySelector('#screen');
+const numButtons = document.querySelectorAll(".num-button");
+const allClear = document.querySelector('.all-clear');
+const clear = document.querySelector('.clear');
+const operatorButton = document.querySelectorAll('.operator-button');
+const calculate = document.querySelector('#=');
 
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -65,6 +66,6 @@ operatorButton.forEach((button) => {
   let operator = button.id;
   let calc = [numOne,operator];
   screen.innerText = '';
-  console.log(calc);
+  return(calc);
   });
-})
+});
