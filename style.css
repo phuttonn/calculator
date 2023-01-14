@@ -18,6 +18,11 @@ body {
     padding-top:16px;
 }
 
+#working-screen {
+    font-size: smaller;
+    color: rgb(147, 147, 147);
+}
+
 button {
     width: 40px;
     height: auto;
