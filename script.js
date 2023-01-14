@@ -59,12 +59,13 @@ const calculate = document.querySelector('.equal-button');
     let newArray = screenArray.slice(0,-1).join('');
     screen.innerText =(newArray);
   });
-
+  
+var calc;
 operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
   let numOne = screen.innerText;
   let operator = button.id;
-  let calc = [numOne,operator];
+  calc = [numOne,operator];
   screen.innerText = '';
   return(calc);
   });
