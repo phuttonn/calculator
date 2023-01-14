@@ -1,5 +1,5 @@
 const add = (a,b) => {
-    return a + b;
+    return (a) + (b);
 }
 
 const subtract = (a,b) => {
@@ -17,6 +17,8 @@ const divide = (a,b) => {
 }
 
 const operate = (operator, num1, num2) => {
+  Number(num1);
+  Number(num2);
     switch (operator) {
       case '+':
        value = add(num1, num2);
