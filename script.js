@@ -11,14 +11,16 @@ const mult = (a,b) => {
 }
 
 const divide = (a,b) => {
-    if(b === 0) {
-      return alert("Cant divide by zero!")
-    } else return a / b;
+   return a / b;
 }
 
 const operate = (operator, num1, num2) => {
   num1 = Number(num1);
   num2 = Number(num2);
+  if(num2 === 0) {
+    alert("Cant divide by zero!")
+    return 0;
+  } else {
     switch (operator) {
       case '+':
        value = add(num1, num2);
@@ -34,7 +36,8 @@ const operate = (operator, num1, num2) => {
         break;
       default:
         throw new Error(`Invalid operator: ${operator}`); 
-    }
+      };
+    };
     return value;
   };
 
