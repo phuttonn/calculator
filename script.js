@@ -37,8 +37,6 @@ const operate = (operator, num1, num2) => {
   };
 
 const screen = document.querySelector('#screen');
-const workingScreen = document.querySelector('.working-screen');
-const currentScreen = ('.current-screen');
 const numButtons = document.querySelectorAll(".num-button");
 const allClear = document.querySelector('.all-clear');
 const clear = document.querySelector('.clear');
