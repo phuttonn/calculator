@@ -38,44 +38,55 @@ const operate = (operator, num1, num2) => {
 
 const screen = document.querySelector('#screen');
 const numButtons = document.querySelectorAll(".num-button");
+const buttons = document.querySelectorAll('button');
 const allClear = document.querySelector('.all-clear');
 const clear = document.querySelector('.clear');
 const operatorButton = document.querySelectorAll('.operator-button');
 const calculate = document.querySelector('.equal-button');
 
+const workingScreen = document.querySelector('#working-screen');
+const currentScreen = document.querySelector('#current-screen');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    let val = button.innerText;
+    workingScreen.append(`${val}`)
+  });
+});
+
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
       let val = button.innerText;
-    screen.append(`${val}`);
-    })
+      currentScreen.append(`${val}`);
+    });
   });
 
   allClear.addEventListener('click', () => {
-    screen.innerText = ('');
+    currentScreen.innerText = ('');
   });
   
   clear.addEventListener('click', () => {
-    screenArray = screen.innerText.split('');
+    screenArray = currentScreen.innerText.split('');
     let newArray = screenArray.slice(0,-1).join('');
-    screen.innerText =(newArray);
+    currentScreen.innerText =(newArray);
   });
 
 var calc;
 operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
-  let numOne = screen.innerText;
+  let numOne = currentScreen.innerText;
   let operator = button.id;
   calc = [numOne,operator];
-  screen.innerText = '';
+  currentScreen.innerText = '';
   return(calc);
   });
 });
 
 calculate.addEventListener('click', () => {
   var num1 = calc[0];
-var operator = calc[1];
-  let num2 = screen.innerText;
+  var operator = calc[1];
+  let num2 = currentScreen.innerText;
   let val = operate(operator,num1,num2);
-  screen.innerText = ('');
-  screen.append(`${val}`);
+  currentScreen.innerText = ('');
+  currentScreen.append(`${val}`);
 });
