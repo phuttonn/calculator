@@ -73,6 +73,7 @@ buttons.forEach((button) => {
   allClear.addEventListener('click', () => {
     currentScreen.innerText = '';
     workingScreen.innerText = '';
+    operator = null;
   });
   
   clear.addEventListener('click', () => {
@@ -82,8 +83,9 @@ buttons.forEach((button) => {
 
 operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
-    if(num1 !== '' || num2 !== '' || operator !== null) {
+    if(operator !== null) {
       calc();
+      operator = null;
     } else {
   num1 = currentScreen.innerText;
   operator = button.id;
@@ -93,11 +95,12 @@ operatorButton.forEach((button) => {
 });
 
  function calc() {
-  if(operator !== null){
+  if(num1 !== '' || num2 !== '' || operator !== null){
     num2 = currentScreen.innerText;
     let val = operate(operator,num1,num2);
     currentScreen.innerText = ('');
     currentScreen.append(`${val}`);
+    operator = null;
   } else {
     return
   };
