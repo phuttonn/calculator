@@ -93,7 +93,7 @@ operatorButton.forEach((button) => {
 });
 
  function calc() {
-  if(num1 !== '' || num2 !== '' || operator !== null){
+  if(operator !== null){
     num2 = currentScreen.innerText;
     let val = operate(operator,num1,num2);
     currentScreen.innerText = ('');
