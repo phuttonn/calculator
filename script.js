@@ -82,13 +82,17 @@ buttons.forEach((button) => {
 
 operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
+    if(num1 !== '' || num2 !== '' || operator !== null) {
+      calc();
+    } else {
   num1 = currentScreen.innerText;
   operator = button.id;
   return currentScreen.innerText = '';
+    };
   });
 });
 
-calculate.addEventListener('click', () => {
+ function calc() {
   if(num1 !== '' || num2 !== '' || operator !== null){
     num2 = currentScreen.innerText;
     let val = operate(operator,num1,num2);
@@ -97,4 +101,5 @@ calculate.addEventListener('click', () => {
   } else {
     return
   };
-});
+}
+calculate.addEventListener('click', calc);
