@@ -45,6 +45,7 @@ const operate = (operator, num1, num2) => {
 let num1 = '';
 let num2 = '';
 let operator = null;
+let calculatedVal = '';
 
 const screen = document.querySelector('#screen');
 const numButtons = document.querySelectorAll(".num-button");
@@ -57,25 +58,40 @@ const calculate = document.querySelector('.equal-button');
 const workingScreen = document.querySelector('#working-screen');
 const currentScreen = document.querySelector('#current-screen');
 
+function reset() {
+  currentScreen.innerText = '';
+    workingScreen.innerText = '';
+    operator = null;
+    calculatedVal = '';
+}
+
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    let val = button.innerText;
-    workingScreen.append(`${val}`)
+    if(calculatedVal === ''){
+      let val = button.innerText;
+      workingScreen.append(`${val}`);
+    } else {
+      reset();
+      val = button.innerText;
+      workingScreen.append(`${val}`);
+    }
   });
 });
 
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      let val = button.innerText;
+      if(calculatedVal === ''){
+        let val = button.innerText;
+        currentScreen.append(`${val}`);
+    } else {
+      reset();
+      val = button.innerText;
       currentScreen.append(`${val}`);
+    }
     });
   });
 
-  allClear.addEventListener('click', () => {
-    currentScreen.innerText = '';
-    workingScreen.innerText = '';
-    operator = null;
-  });
+  allClear.addEventListener('click', reset);
   
   clear.addEventListener('click', () => {
     currentScreen.textContent = currentScreen.textContent.substring(0, currentScreen.textContent.length - 1);
@@ -98,9 +114,9 @@ operatorButton.forEach((button) => {
  function calc() {
   if(num1 !== '' || num2 !== '' || operator !== null){
     num2 = currentScreen.innerText;
-    let val = operate(operator,num1,num2);
+    calculatedVal = operate(operator,num1,num2);
     currentScreen.innerText = ('');
-    currentScreen.append(`${val}`);
+    currentScreen.append(`${calculatedVal}`);
     operator = null;
   } else {
     return
