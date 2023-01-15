@@ -89,8 +89,12 @@ operatorButton.forEach((button) => {
 });
 
 calculate.addEventListener('click', () => {
-  let num2 = currentScreen.innerText;
-  let val = operate(operator,num1,num2);
-  currentScreen.innerText = ('');
-  currentScreen.append(`${val}`);
+  if(num1 !== '' || num2 !== '' || operator !== null){
+    num2 = currentScreen.innerText;
+    let val = operate(operator,num1,num2);
+    currentScreen.innerText = ('');
+    currentScreen.append(`${val}`);
+  } else {
+    return
+  };
 });
