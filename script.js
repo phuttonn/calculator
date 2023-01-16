@@ -92,7 +92,7 @@ operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
     let val = button.innerText;
       workingScreen.append(`${val}`);
-      
+   // if theres a calculated value and operator button is pressed then use that value in later calculation   
   if(calculatedVal !== ''){
     operator = button.id;
     currentScreen.innerText = '';
