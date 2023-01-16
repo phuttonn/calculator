@@ -49,7 +49,7 @@ let calculatedVal = '';
 
 const screen = document.querySelector('#screen');
 const numButtons = document.querySelectorAll(".num-button");
-const buttons = document.querySelectorAll('.num-button, .operator-button');
+
 const allClear = document.querySelector('.all-clear');
 const clear = document.querySelector('.clear');
 const operatorButton = document.querySelectorAll('.operator-button');
@@ -65,29 +65,19 @@ function reset() {
     calculatedVal = '';
 }
 
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    if(calculatedVal === ''){
-      let val = button.innerText;
-      workingScreen.append(`${val}`);
-    } else {
-      reset();
-      val = button.innerText;
-      workingScreen.append(`${val}`);
-    }
-  });
-});
+// number buttons populate current screen
 
  numButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      if(calculatedVal === ''){
+     // if(calculatedVal === ''){
         let val = button.innerText;
         currentScreen.append(`${val}`);
-    } else {
-      reset();
-      val = button.innerText;
-      currentScreen.append(`${val}`);
-    }
+        workingScreen.append(`${val}`);
+ //   } else {
+ //     reset();
+ //     val = button.innerText;
+ //     currentScreen.append(`${val}`);
+ //   }
     });
   });
 
@@ -100,7 +90,15 @@ buttons.forEach((button) => {
 
 operatorButton.forEach((button) => {
   button.addEventListener('click', () => {
-    if(operator !== null) {
+    let val = button.innerText;
+      workingScreen.append(`${val}`);
+      
+  if(calculatedVal !== ''){
+    operator = button.id;
+    currentScreen.innerText = '';
+    workingScreen.innerText = (`${calculatedVal}${operator}`);
+    num1 = calculatedVal;
+  } else if(operator !== null) {
       calc();
       operator = null;
     } else {
@@ -117,7 +115,6 @@ operatorButton.forEach((button) => {
     calculatedVal = operate(operator,num1,num2);
     currentScreen.innerText = ('');
     currentScreen.append(`${calculatedVal}`);
-    operator = null;
   } else {
     return
   };
