@@ -100,7 +100,9 @@ operatorButton.forEach((button) => {
     num1 = calculatedVal;
   } else if(operator !== null) {
       calc();
-      operator = null;
+      num1 = calculatedVal;
+      currentScreen.innerText = '';
+      operator = button.id;
     } else {
   num1 = currentScreen.innerText;
   operator = button.id;
